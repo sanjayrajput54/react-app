@@ -1,9 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addTodo } from "../actions";
+import { addTodo, deleteTodo } from "../actions";
 
 const AddTodo = ({ dispatch }) => {
   let input;
+
+  const onDeleteTodo = () => {
+    console.log(input.value);
+    if (!input.value.trim()) {
+      return;
+    }
+    dispatch(deleteTodo(input.value));
+    input.value = "";
+  };
 
   return (
     <div>
@@ -19,6 +28,9 @@ const AddTodo = ({ dispatch }) => {
       >
         <input ref={node => (input = node)} />
         <button type="submit">Add Todo</button>
+        <button type="button" onClick={onDeleteTodo}>
+          Delete Todo
+        </button>
       </form>
     </div>
   );
