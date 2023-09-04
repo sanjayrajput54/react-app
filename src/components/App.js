@@ -4,10 +4,12 @@ import AddTodo from "../containers/AddTodo";
 import VisibleTodoList from "../containers/VisibleTodoList";
 
 const App = () => (
+  <div style={{display:"flex", "justify-content":"center}}>
   <div>
     <AddTodo />
     <VisibleTodoList />
     <Footer />
+  </div>
   </div>
 );
 
